@@ -10,10 +10,16 @@
 # ActionView::Base.send(:include, TmSyntaxHighlighting::Helper)
 # ActionController::Base.send(:extend, TmSyntaxHighlighting::Controller)
 
+require "blog_kit/version"
+  
+# require 'tm_syntax_highlighting'
+#module BlogKit
+
 
 require 'singleton'
-class BlogKit
-	include Singleton
+#class BlogKit
+module BlogKit
+  #include Singleton
 	
 	def initialize
 		load_config
@@ -48,3 +54,5 @@ class BlogKit
 		BlogImage.respond_to?(:has_attached_file)
 	end
 end
+
+
