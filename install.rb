@@ -22,6 +22,6 @@ begin
 		puts "The following error ocurred: " + e.inspect
 	end
 rescue Exception => e
-	puts "BlogKit is installed, to continue run:"
+	puts "BlogBasic is installed, to continue run:"
 	puts "rails generate blog_assets"
 end

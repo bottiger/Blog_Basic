@@ -5,6 +5,20 @@ require 'rake/rdoctask'
 require 'spec'
 require 'spec/rake/spectask'
 
+require 'rubygems'
+require 'echoe'
+
+Echoe.new('blog_basic', '0.1.0') do |p|
+  p.description    = "Sets up a basic but functional blogging platform."
+  p.url            = "http://bottiger.org/made/blog_basic"
+  p.author         = "Arvid Böttiger"
+  p.email          = "bottiger@gmail.com"
+  p.ignore_pattern = ["tmp/*", "script/*"]
+  p.development_dependencies = []
+end
+
+Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
+
 
 desc 'Test the blog_kit plugin.'
 Rake::TestTask.new(:test) do |t|

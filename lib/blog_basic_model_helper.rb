@@ -1,4 +1,5 @@
 require 'rubygems'
+
 begin
     require 'maruku'
 	require 'bluecloth'
@@ -13,7 +14,7 @@ rescue Exception => e
 	puts "Could not load UltraViolet"
 end
 
-module BlogKitModelHelper
+module BlogBasicModelHelper
 	def code_highlight_and_markdown(text, markdown_options = {})
     text_pieces = text.split(/(<code>|<code lang="[A-Za-z0-9_-]+">|
       <code lang='[A-Za-z0-9_-]+'>|<\/code>)/)
@@ -53,7 +54,7 @@ module BlogKitModelHelper
 		if self.user && self.user.respond_to?(:blog_image_url) && self.user.blog_image_url
 			# Load image from model
 			ret = "<img src=\"#{self.user.blog_image_url}\" />"
-		elsif BlogKit.instance.settings['gravatar']
+		elsif BlogBasic.instance.settings['gravatar']
 			# Gravatar
 			require 'digest/md5'
 			if self.respond_to?(:email) && !self.email.blank?

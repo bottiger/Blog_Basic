@@ -1,13 +1,13 @@
-BlogKitty
+blog_basic
 =======
 
-BlogKitty is a fork of the rails plugin BlogKit (https://github.com/ryanstout/blog_kit)
+blog_basic is a fork of the rails plugin BlogKit (https://github.com/ryanstout/blog_kit)
 
-This was done because BlogKit while being a very attractive project for people who quickly wants to set up a functional blog
-lacked some features and had some security vurnabilities which has not been adressed yet.
+While I really liked the idea if BlogKit it was unmaintained, lacked some essential features and had a few 
+security vurnabilities which has not been adressed yet.
 
 
-Blog Kitty
+blog_basic
 ========
 
 BlogKitty is a rails plugin to add a blog to your application.  The goal is to provide common blog
