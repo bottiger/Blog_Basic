@@ -15,7 +15,7 @@ class BlogImage < ActiveRecord::Base
 				:small    => '100x100>',
 				:thumb    => '30x30>'
 			}
-		}.merge(BlogKit.instance.settings['paperclip'] || {}))
+		}.merge(BlogBasic::BlogConf.data['paperclip'] || {}))
 	end
 	
 end

@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + "/lib/blog_kit"
 
-# Setup blog kit
-#BlogKit.instance
+# Setup blog 
+BlogConf.instance
+APP_CONFIG = BlogConf.data

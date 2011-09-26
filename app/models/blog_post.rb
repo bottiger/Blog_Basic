@@ -1,7 +1,8 @@
 
 class BlogPost < ActiveRecord::Base
-	include BlogKitModelHelper
+	include BlogBasic::BlogBasicModelHelper
 	include ActionView::Helpers::TextHelper
+
 
 	unloadable
 	
@@ -11,8 +12,7 @@ class BlogPost < ActiveRecord::Base
 	has_many :blog_images, :dependent => :destroy
     has_many :blog_contents
 
-	accepts_nested_attributes_for :blog_images, :allow_destroy => true
-	
+	accepts_nested_attributes_for :blog_images, :allow_destroy => true	
 	
 	validates_presence_of :title
 	validates_presence_of :body
@@ -64,12 +64,12 @@ class BlogPost < ActiveRecord::Base
 	end
 	
 	def show_user?
-		(!BlogKit.instance.settings['show_user_who_published'] || BlogKit.instance.settings['show_user_who_published'] == true) && self.user
+		(!BlogBasic::BlogConf.data['show_user_who_published'] || BlogBasic::BlogConf.data['show_user_who_published'] == true) && self.user
 	end
 	
 	
 	def user_name(skip_link=false)
-		if !skip_link && BlogKit.instance.settings['link_to_user']
+		if !skip_link && BlogBasic::BlogConf.data['link_to_user']
 			return "<a href=\"/users/#{self.user.id}\">#{CGI.escapeHTML(self.user.name)}</a>"
 		else
 			return self.user.name
@@ -94,7 +94,7 @@ class BlogPost < ActiveRecord::Base
 	end
 	
 	def formatted_updated_at
-		self.updated_at.strftime(BlogKit.instance.settings['post_date_format'] || '%m/%d/%Y at %I:%M%p')
+		self.updated_at.strftime(BlogBasic::BlogConf.data['post_date_format'] || '%m/%d/%Y at %I:%M%p')
 	end
 	
 	# Provide SEO Friendly URL's

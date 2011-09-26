@@ -1,5 +1,5 @@
 class BlogComment < ActiveRecord::Base
-	include BlogKitModelHelper
+	include BlogBasicModelHelper
 	
 	unloadable
 	
@@ -18,7 +18,7 @@ class BlogComment < ActiveRecord::Base
 	end
 
 	def formatted_created_at
-		self.created_at.strftime(BlogKit.instance.settings['post_date_format'] || '%m/%d/%Y at %I:%M%p')
+		self.created_at.strftime(BlogConf.data['post_date_format'] || '%m/%d/%Y at %I:%M%p')
 	end
 	
 	def parsed_body
@@ -49,7 +49,7 @@ class BlogComment < ActiveRecord::Base
 	end
 	
 	def check_for_spam
-		if BlogKit.instance.settings['akismet_key'] && BlogKit.instance.settings['blog_url']
+		if BlogConf.data['akismet_key'] && BlogConf.data['blog_url']
 		  if Akismetor.spam?(akismet_attributes)
 				self.errors.add_to_base('This comment has been detected as spam')
 				return false
@@ -62,8 +62,8 @@ class BlogComment < ActiveRecord::Base
 
 	def akismet_attributes
 	  {
-	    :key                  => BlogKit.instance.settings['akismet_key'],
-	    :blog                 => BlogKit.instance.settings['blog_url'],
+	    :key                  => BlogConf.data['akismet_key'],
+	    :blog                 => BlogConf.data['blog_url'],
 	    :user_ip              => user_ip,
 	    :user_agent           => user_agent,
 	    :comment_author       => name,

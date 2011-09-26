@@ -1,7 +1,7 @@
 class BlogPostsController < ApplicationController
-	unloadable
+    unloadable
 	
-	helper :blog
+	helper :blog, :shared
 	
 	layout :choose_layout
 	
@@ -10,9 +10,15 @@ class BlogPostsController < ApplicationController
 	before_filter :require_admin, :except => [:index, :show]
 	before_filter :setup_image_template, :only => [:new, :edit, :create, :update]
 
+  def test
+    render :text => "hello world"
+  end
+
   def index
+    logger.debug "sdfd"
+    logger.debug "=>" + BlogBasic::BlogConf.data.to_s
     @blog_posts = BlogPost.published.paginate(:page => params[:page], :per_page => 5)
-    @index_title = BlogKit.instance.settings['blog_name'] || 'Blog'
+    @index_title = BlogBasic::BlogConf.data['blog_name'] || 'Blog'
     @ads = false
 
     respond_to do |format|
@@ -133,9 +139,9 @@ class BlogPostsController < ApplicationController
 		
 		def choose_layout
 			if ['new', 'edit', 'create', 'update'].include?(params[:action])
-				BlogKit.instance.settings['admin_layout'] || 'application'
+				BlogBasic::BlogConf.data['admin_layout'] || 'application'
 			else
-				BlogKit.instance.settings['layout'] || 'application'
+				BlogBasic::BlogConf.data['layout'] || 'application'
 			end
 		end
 		
@@ -144,3 +150,4 @@ class BlogPostsController < ApplicationController
   		@empty_blog_post.blog_images.build
 	  end
 end
+

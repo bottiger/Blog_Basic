@@ -3,7 +3,7 @@
 <% end %>
 <div class="blogPost">
   <% if @ads %>
-    <%= text_ad(blog_post.created_at) %>
+    <%= sidebar_ad(blog_post.created_at) %>
   <% end %>
   <div class="blogUserImage">
     <%= blog_post.user_image_tag %>

@@ -1,6 +1,6 @@
 <div class="blogNewComment">
 	<h2>Post a Comment</h2>
-	<% if !current_user && (!BlogKit.instance.settings['anonymous_comments'] || BlogKit.instance.settings['anonymous_comments'] == false) %>
+	<% if !current_user && (!BlogBasic::BlogConf.data['anonymous_comments'] || BlogBasic::BlogConf.data['anonymous_comments'] == false) %>
 		<p>You must be logged in to post a comment.</p>
 	<% else %>
 		<% if current_user %>
