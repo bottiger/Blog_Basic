@@ -39,21 +39,19 @@ Coming Soon:
 Install for Rails3
 ==================
 
-in rails:
+Add blog_basic to your Gemfile
 
-    rails plugin install git://github.com/bottiger/blog_kit.git -r rails3
+    gem 'blog_basic'
 
-The plugin will then copy in migrations for the BlogPost and BlogComment models.  Install the tables with:
+then run "bundle install" to make sure you are up to date. Install blog_basic my running the generator blog_basic:install
 
-    rake db:migrate
+   rails g blog_basic:install
 
-The blog_kit configuration file will be installed in config/blog_kit.yml, you can enable and disable features there.
+and migrate your database
 
-An editable CSS file for the blog pages will be copied into public/stylesheets/blog_kit.css
+   rake db:migrate
 
-CSS files for the code highlighter will be copied into public/stylesheets/syntax/
-    
-Then you will want to make sure your app meets the setup requirements below.
+Now adjust config/routes.rb for your desired path and config/blog_basic.yml for the rest of the configuration
 
 Assumptions
 ===========
