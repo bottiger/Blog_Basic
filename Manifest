@@ -40,11 +40,6 @@ blog_basic.gemspec
 config/routes.rb
 db/migrate/1_blog_tables.rb
 init.rb
-install.rb.old
-lib.default/blog_basic.rb
-lib.default/blog_basic/engine.rb
-lib.default/blog_basic/version.rb
-lib.default/tasks/blog_tasks.rake
 lib/akismetor.rb
 lib/blog_basic.rb
 lib/blog_basic/blog_basic_model_helper.rb

@@ -18,7 +18,7 @@ resources :blog_posts, :path => '' do
 end
     match '/test' => 'tag#test'
 #    match 'tag/:tag' => 'tag#show', :as => 'tag'
-resources :tags
+    resources :tags
 
     #fix - include in namespace
     match "/auth/:provider/callback" => "sessions#create"
