@@ -1,23 +1,24 @@
 BlogBasic::Engine.routes.draw do
 #Rails::Application.routes.draw do
 #match '*' => 'tag#test'
-resources :blog_posts  
-#  resources :blog_posts, :path => '' do
+#resources :blog_posts do 
+resources :blog_posts, :path => '' do
 ##        posts :as => :wrote
 #
-#		resources :blog_comments
-#		resources :blog_images
+		resources :blog_comments
+		resources :blog_images
 #		
-#		collection do
-#			get :drafts
-#		end
+		collection do
+			get :drafts
+		end
 #		
 #		#member do
 		#	get :tag
 		#end
-#	end
+end
     match '/test' => 'tag#test'
-    match 'tag/:tag' => 'tag#show', :as => 'tag'
+#    match 'tag/:tag' => 'tag#show', :as => 'tag'
+resources :tags
 
     #fix - include in namespace
     match "/auth/:provider/callback" => "sessions#create"

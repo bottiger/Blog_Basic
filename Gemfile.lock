@@ -56,6 +56,7 @@ GEM
     addressable (2.2.6)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
+    bluecloth (2.2.0)
     builder (3.0.0)
     cocaine (0.2.0)
     coffee-script (2.2.0)
@@ -189,6 +190,7 @@ DEPENDENCIES
   activeadmin
   acts-as-taggable-on
   blog_basic!
+  bluecloth (~> 2.2.0)
   coffee-script
   jquery-rails
   json

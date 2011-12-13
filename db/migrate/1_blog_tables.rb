@@ -1,0 +1,1 @@
+../../lib/generators/blog_basic/install/templates/migrations/1_blog_tables.rb

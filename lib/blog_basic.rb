@@ -5,5 +5,8 @@ module BlogBasic
   #BlogConf.new
   require 'akismetor'
   require 'url_validator'
-#module BlogBasic
+  require 'acts-as-taggable-on'
+  require 'will_paginate'
+  require 'paperclip'
+  #module BlogBasic
 end
