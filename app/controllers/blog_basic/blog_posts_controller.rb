@@ -3,6 +3,7 @@ module BlogBasic
     unloadable
 
     helper :all #blog, shared
+    #include BlogBasic::Helpers
 
     layout :choose_layout
 

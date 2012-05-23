@@ -1,3 +1,5 @@
+###require 'activeadmin'
+
 module BlogBasic
   require 'blog_basic/engine' if defined?(Rails) && Rails::VERSION::MAJOR == 3
   require 'blog_basic/blog_basic_model_helper'
@@ -8,5 +10,7 @@ module BlogBasic
   require 'acts-as-taggable-on'
   require 'will_paginate'
   require 'paperclip'
+  #  require 'activeadmin'
   #module BlogBasic
+
 end

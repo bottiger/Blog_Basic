@@ -8,13 +8,13 @@ require 'rake/testtask'
 require 'rubygems'
 require 'echoe'
 
-Echoe.new('blog_basic', '0.1.4') do |p|
+Echoe.new('blog_basic', '0.1.8') do |p|
   p.description    = "Sets up a basic but functional blogging platform."
   p.url            = "http://bottiger.org/made/blog_basic"
   p.author         = "Arvid Boettiger"
   p.email          = "bottiger@gmail.com"
   p.ignore_pattern = ["tmp/*", "script/*"]
-  p.runtime_dependencies = ['bluecloth ~>2.2.0', 'will_paginate >=3.0.1', "paperclip >=2.3", "activeadmin", "acts-as-taggable-on ~>2.1.1", "omniauth ~>1.0.0", "omniauth-openid ~>1.0.0", "omniauth-github ~>1.0.0"]
+  p.runtime_dependencies = ['bluecloth ~>2.2.0', 'will_paginate', "paperclip >=2.3", "sass-rails", "meta_search ~>1.1.1", "acts-as-taggable-on ~>2.1.1", "omniauth ~>1.0.0", "omniauth-openid ~>1.0.0", "omniauth-github ~>1.0.0"]
 end
 
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }

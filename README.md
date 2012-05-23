@@ -19,7 +19,6 @@ BlogKitty has the following features.
 + Search engine friendly urls
 + Uses existing user model
 + Comments via existing user model
-+ Highlights code (with ultraviolet)
 + Uses your existing layouts
 + Easily customizable css
 + Akismet (spam filtering) Support
@@ -29,12 +28,7 @@ BlogKitty has the following features.
 + Atom Feeds
 + Tags
 + Image upload (via paperclip, or something that adds has_attached_file to models)
-    + S3 Image support
 
-
-Coming Soon:
-
-+ Follow comments (via e-mail)
 
 Install for Rails3
 ==================

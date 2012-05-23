@@ -10,7 +10,10 @@ module BlogBasic
     end
 
     def carnonical_link(post)
-      "<link rel=\"canonical\" href=\"/".html_safe + post.id.to_s + "\" />".html_safe
+      prefix=""
+      url_parts = blog_post_path.split("/") # FIXME: pretty solution is welcome
+      url_parts.each { |part| prefix = prefix + part + "/" unless part == url_parts.last }
+      "<link rel=\"canonical\" href=\"".html_safe + prefix + post.id.to_s + "\" />".html_safe
     end
 
   end
