@@ -2,6 +2,12 @@ module BlogBasic
   class User < ActiveRecord::Base
 
     attr_accessible :identifier_url
+    before_save :default_values
+  
+
+    def default_values
+        self.status ||= BlogBasic::BlogConf.data['fallback_name']
+    end
 
     def self.create_with_omniauth(auth)
       create! do |user|
@@ -16,7 +22,7 @@ module BlogBasic
     end
 
     def name
-      "Arvid Bottiger"
+      self.name
     end
 
   end

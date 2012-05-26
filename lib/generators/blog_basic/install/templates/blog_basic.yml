@@ -3,10 +3,13 @@
 
 # ================ Visual settings ================
 
-blog_name: 'Bottiger.org wrote'
+blog_name: 'My Blog'
 
 # Show "Published By ..."
 show_user_who_published: true
+
+# Used as Author name in case your auth-provider does not have one.
+fallback_name: "Your Name"
 
 post_date_format: '%d/%m/%Y at %I:%M%p' # strftime format
 

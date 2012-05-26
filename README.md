@@ -49,7 +49,7 @@ Now adjust config/routes.rb for your desired path and config/blog_basic.yml for 
 Assumptions
 ===========
 
-BlogKit makes the following assumptions
+Blog_basic makes the following assumptions
 
 + flash messages displaying is handled via the layout
 
