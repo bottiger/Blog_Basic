@@ -1,6 +1,8 @@
 module BlogBasic
   class User < ActiveRecord::Base
 
+    attr_accessible :identifier_url
+
     def self.create_with_omniauth(auth)
       create! do |user|
         user.provider = auth["provider"]
@@ -10,7 +12,6 @@ module BlogBasic
     end
 
     def admin?
-      #self.email == "bottiger@gmail.com"
       !self.identifier_url.nil?
     end
 

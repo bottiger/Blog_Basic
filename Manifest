@@ -90,9 +90,6 @@ lib/generators/blog_basic/install/templates/blog_kit.css
 lib/generators/blog_basic/install/templates/devise.en.yml
 lib/generators/blog_basic/install/templates/devise.rb
 lib/generators/blog_basic/install/templates/migrations/1_blog_tables.rb
-lib/generators/blog_basic/install/templates/migrations/20111213104240_devise_create_admin_users.rb
-lib/generators/blog_basic/install/templates/migrations/20111213114257_create_admin_notes.rb
-lib/generators/blog_basic/install/templates/migrations/20111213114258_move_admin_notes_to_comments.rb
 lib/generators/blog_basic/install/templates/omniauth.rb.erb
 lib/tasks/blog_basic_tasks.rake
 lib/url_validator.rb

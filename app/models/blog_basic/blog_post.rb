@@ -5,6 +5,8 @@ module BlogBasic
 
     unloadable
 
+    attr_accessible :title, :body, :tag_list, :published
+
     belongs_to :user
 
     has_many :blog_comments, :dependent => :destroy
@@ -25,6 +27,20 @@ module BlogBasic
     after_save :replace_blog_image_tags, :if => :not_resaving?
 
     acts_as_taggable
+
+    def markdown(text, markdown_options = {})
+      BlueCloth.new(text, markdown_options).to_html
+    end
+
+    def code_highlight(text)
+      text.gsub(/\<code( lang="(.+?)")?\>(.+?)\<\/code\>/m) do
+        CodeRay.scan($3, $2).div(:css => :class)
+      end
+    end
+
+    def render_text(text, markdown_options = {})
+      markdown(code_highlight(text), markdown_options)
+    end
 
     def not_resaving?
       !@resaving
@@ -89,7 +105,7 @@ module BlogBasic
       if length > 0
         image_parsed_body =  truncate(image_parsed_body, :length => length, :separator => ' ')
       end
-      return code_highlight_and_markdown(image_parsed_body)
+      return render_text(image_parsed_body)
     end
 
     def formatted_updated_at
@@ -100,5 +116,31 @@ module BlogBasic
     def to_param
       "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
     end
+
+    def user_image_tag
+      if self.user && self.user.respond_to?(:blog_image_url) && self.user.blog_image_url
+        # Load image from model
+        ret = "<img src=\"#{self.user.blog_image_url}\" />"
+      elsif BlogConf.data['gravatar']
+        # Gravatar
+        require 'digest/md5'
+        if self.respond_to?(:email) && !self.email.blank?
+          email = self.email
+        elsif self.user && self.user.respond_to?(:email) && !self.user.email.blank?
+          email = self.user.email
+        else
+          return ''
+        end
+
+        hash = Digest::MD5.hexdigest(email.downcase)
+        ret = "<img src=\"http://www.gravatar.com/avatar/#{hash}.jpg\" />"
+      else
+        # No Image
+        return ''
+      end
+
+      return ret.html_safe if ret.respond_to?(:html_safe)
+      return ret
+    end
   end
-end
+ end

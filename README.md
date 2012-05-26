@@ -3,10 +3,6 @@ blog_basic
 
 blog_basic is a fork of the rails plugin BlogKit (https://github.com/ryanstout/blog_kit)
 
-While I really liked the idea if BlogKit it was unmaintained, lacked some essential features and had a few 
-security vurnabilities which has not been adressed yet.
-
-
 blog_basic
 ========
 
@@ -44,6 +40,9 @@ then run "bundle install" to make sure you are up to date. Install blog_basic my
 and migrate your database
 
    rake db:migrate
+
+edit config/initializers/blog_omniauth.rb
+and config/blog_basic.yml
 
 Now adjust config/routes.rb for your desired path and config/blog_basic.yml for the rest of the configuration
 

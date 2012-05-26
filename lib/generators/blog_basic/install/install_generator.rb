@@ -26,6 +26,9 @@ module BlogBasic
 
       def setup_routes
         route "mount BlogBasic::Engine => \"/blog\""
+        route "match '/signin' => redirect('/auth/github')"
+        route "match '/auth/:provider/callback', to: 'blog_basic/sessions#create'"
+        route "match '/signout' => 'blog_basic/sessions#destroy', :as => :signout"
       end
 
       def create_assets
