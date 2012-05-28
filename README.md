@@ -6,7 +6,7 @@ blog_basic is a fork of the rails plugin BlogKit (https://github.com/ryanstout/b
 blog_basic
 ========
 
-BlogKitty is a rails plugin to add a blog to your application.  The goal is to provide common blog
+Blog_basic is a rails plugin to add a blog to your application.  The goal is to provide common blog
 functionality that integrates into your existing app while keeping things simple.
 
 BlogKitty has the following features.
@@ -25,6 +25,14 @@ BlogKitty has the following features.
 + Tags
 + Image upload (via paperclip, or something that adds has_attached_file to models)
 
+Status
+======
+
+Blog_basic is currently fully working. However, it still needs to mature quite a bit. The testing is lacking, 
+there is still a lot of code cleaning to do, configuration should be improved etc.
+
+Futhermore I need to get some feedback from people actually using it. Currently I'm just scratching my own itch, but would love to
+hear what other people want from a blogging system.
 
 Install for Rails3
 ==================
@@ -41,8 +49,9 @@ and migrate your database
 
    rake db:migrate
 
-edit config/initializers/blog_omniauth.rb
-and config/blog_basic.yml
+edit the following file, and add your github application keys
+
+   config/initializers/blog_omniauth.rb
 
 Now adjust config/routes.rb for your desired path and config/blog_basic.yml for the rest of the configuration
 
@@ -57,33 +66,10 @@ Blog_basic makes the following assumptions
 Setup
 =====
 
-BlogKit is designed to work with your existing user model, at the moment, it assumes this will be
-called User.  Your User class and application controller simply need to respond to some methods to
-be able to use BlogKit.  These methods, while not standardized are very common, and come with plugins
-like Authlogic and restful_authentication.
+Blog_baisc tries to be as unintrusive as possible with regards to your current authentication system.
 
-ApplicationController should respond to:
-    #require_user
-    #current_user
-    #title - (optional passes in the pages title as the first argument)
-
-User model should respond to:
-    #admin?  - returns true if the user can edit posts and delete comments
-    #name	 - the users name
-    #blog_image_url (optional, the users photo, show next to comments/posts)
-    #email (options - for gravatar support)
-    
-Once you have everything setup, you can see and manage the blog at /blog_posts  Make sure that you have
-all of the requirements below met.
-
-Rails 3 is supported via the rails3 branch, if you are using legacy routing, you may need to copy in routes
-from config/routes.rb to your main routes.rb file.
-
-To be able to use the delete links on posts, you will need to add the following to the top of your layout:
-
-    <%= csrf_meta_tag %>
-
-Also be sure that you have the proper javascript handling code for link_to '', :method => destroy
+In the future it will integrate with your existing user model, but currently it only uses your github account to
+authenticate thus eliminating the use of a User model, and makes the authentication process as simple as possible.
 
 Requirements
 ============

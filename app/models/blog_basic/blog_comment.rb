@@ -1,6 +1,6 @@
 module BlogBasic
   class BlogComment < ActiveRecord::Base
-    include BlogBasic::BlogBasicModelHelper
+    #include BlogBasic::BlogBasicModelHelper
 
     unloadable
 

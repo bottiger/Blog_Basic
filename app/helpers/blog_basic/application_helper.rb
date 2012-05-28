@@ -1,13 +1,13 @@
 module BlogBasic
   module ApplicationHelper
     def signed_in?
-      !session[:user_id].nil?
+      session[:user_id] == BlogBasic::BlogConf.data['user']
     end
 
     def current_user
       logger.info "Current user ID: " + session[:user_id].to_s 
       if signed_in?
-        @current_user ||= User.find(session[:user_id])
+        session[:user_id]
       end
     end
 

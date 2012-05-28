@@ -1,6 +1,7 @@
 module BlogBasic
   class BlogPost < ActiveRecord::Base
-    include BlogBasic::BlogBasicModelHelper
+
+    #include BlogBasic::BlogBasicModelHelper
     include ActionView::Helpers::TextHelper
 
     unloadable

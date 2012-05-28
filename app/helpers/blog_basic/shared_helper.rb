@@ -2,9 +2,7 @@ module BlogBasic
   module SharedHelper
 
     def require_user
-      #return true
-      logger.info session[:user_id].to_s
-      @current_user ||= User.new(session[:user_id])
+      session[:user_id]
     end
 
     def title(page_title)

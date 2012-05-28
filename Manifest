@@ -22,7 +22,6 @@ app/helpers/blog_basic/application_helper.rb
 app/helpers/blog_basic/blog_posts_helper.rb
 app/helpers/blog_basic/shared_helper.rb
 app/helpers/blog_basic/tags_helper.rb
-app/models/admin_user.rb
 app/models/blog_basic/blog_comment.rb
 app/models/blog_basic/blog_content.rb
 app/models/blog_basic/blog_image.rb
@@ -52,8 +51,6 @@ db/migrate/1_blog_tables.rb
 init.rb
 lib/akismetor.rb
 lib/blog_basic.rb
-lib/blog_basic/active_admin.rb
-lib/blog_basic/blog_basic_model_helper.rb
 lib/blog_basic/blog_conf.rb
 lib/blog_basic/engine.rb
 lib/blog_basic/engine.rb.backup
