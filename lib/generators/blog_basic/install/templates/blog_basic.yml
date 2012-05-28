@@ -1,6 +1,9 @@
 # BlogKit configuration file
 ---
 
+# The Gmail you specify here will be used for authorization.
+identify: 'your@gmail.com'
+
 # ================ Visual settings ================
 
 blog_name: 'My Blog'
@@ -9,7 +12,7 @@ blog_name: 'My Blog'
 show_user_who_published: true
 
 # Used as Author name in case your auth-provider does not have one.
-fallback_name: "Your Name"
+name: "Your Name"
 
 post_date_format: '%d/%m/%Y at %I:%M%p' # strftime format
 

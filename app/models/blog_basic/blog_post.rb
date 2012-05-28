@@ -8,7 +8,7 @@ module BlogBasic
 
     attr_accessible :title, :body, :tag_list, :published
 
-    belongs_to :user
+    #belongs_to :user
 
     has_many :blog_comments, :dependent => :destroy
     has_many :blog_images, :dependent => :destroy
@@ -79,17 +79,18 @@ module BlogBasic
       end
     end
 
-    def show_user?
-      (!BlogConf.data['show_user_who_published'] || BlogConf.data['show_user_who_published'] == true) && self.user
-    end
+    #def show_user?
+    #  (!BlogConf.data['show_user_who_published'] || BlogConf.data['show_user_who_published'] == true) && self.user
+    #end
 
 
     def user_name(skip_link=false)
-      if !skip_link && BlogConf.data['link_to_user']
-        return "<a href=\"/users/#{self.user.id}\">#{CGI.escapeHTML(self.user.name)}</a>"
-      else
-        return self.user.name
-      end
+      return BlogConf.data['name']
+      #if !skip_link && BlogConf.data['link_to_user']
+      #  return "<a href=\"/users/#{self.user.id}\">#{CGI.escapeHTML(self.user.name)}</a>"
+      #else
+      #  return self.user.name
+      #end
     end
 
     def parsed_body(length=0)

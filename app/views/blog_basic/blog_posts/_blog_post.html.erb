@@ -2,9 +2,6 @@
   <% content_for :head do %><%= carnonical_link(blog_post) %><% end %>
 <% end %>
 <div class="blogPost">
-  <div class="blogUserImage">
-    <%= blog_post.user_image_tag %>
-  </div>
 
   <h1 class="blogPostTitle header">
     <%= link_to(h(blog_post.title), blog_post) %>
@@ -24,7 +21,7 @@
   <% if params[:action] == 'show' %>
   <p class="blogPostPostedAt">
   <% if blog_post.show_user? %>
-    By <span class="blogPoster"><a rel="author" style="color: red" href="http://who.is.bottiger.org"><%= blog_post.user_name %></a></span>
+    By <span class="blogPoster"><a rel="author" style="color: red" href=/"><%= blog_post.user_name %></a></span>
   <% end %>
   if you liked it, hit the +1 like a man!&nbsp;
   <g:plusone></g:plusone>
