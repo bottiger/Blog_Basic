@@ -1,4 +1,4 @@
-<% if current_user && current_user.admin? %>
+<% if signed_in? %>
 	<div class="blogAdminLinks">
 		<ul class="blogList">
 			<li class="blogListFirst"><%= link_to 'New Blog Post', new_blog_post_path %></li>

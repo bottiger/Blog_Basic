@@ -33,7 +33,7 @@ module BlogBasic
 
       def create_assets
         #generate "active_admin:assets"
-        copy_file "blog_kit.css", "public/stylesheets/blog_kit.css"
+        copy_file "blog_kit.css", "vendor/assets/stylesheets/blog_kit.css"
       end
 
       def copy_config

@@ -3,7 +3,10 @@ blog_basic
 
 blog_basic is a fork of the rails plugin BlogKit (https://github.com/ryanstout/blog_kit)
 
-blog_basic
+It aims to be a gem which provides a simple and generic blogging service for people to run on their website.
+It is made as easy as possible to deploy, and requires no external intregration to work.
+
+Features
 ========
 
 Blog_basic is a rails plugin to add a blog to your application.  The goal is to provide common blog
@@ -13,8 +16,7 @@ BlogKitty has the following features.
 
 + Admin for Blog Articles
 + Search engine friendly urls
-+ Uses existing user model
-+ Comments via existing user model
++ Comments
 + Uses your existing layouts
 + Easily customizable css
 + Akismet (spam filtering) Support
@@ -74,86 +76,12 @@ authenticate thus eliminating the use of a User model, and makes the authenticat
 Requirements
 ============
 
-Rails 3.x
-
-- Will_Paginate
-
-Optional:
-
-- Ultraviolet (and its deps, for code highlighting)
-
-    Install Oniguruma if 1.8.x
-    http://www.geocities.jp/kosako3/oniguruma/
-    
-    source 'http://gems.github.com'
-    gem "spox-ultraviolet", :require => false
-    
-- BlueCloth 2 (for markdown)
-
-    gem 'bluecloth'
-
-- Paperclip
-
-    gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
+blog_basic has been written for Rails 3.2 and later.
 
 Customization
 =============
 
 Be sure to edit config/blog_kit.yml, many common settings can be changed there.
-
-** View Customization **
-
-BlogKit is built as a rails engine plugin (for rails 2.3.x, not the previous engines plugin).  You can see
-the models, views, and controllers in vendor/plugins/blog_kit/app/  You can change them by copying any of 
-them into your apps /app directory.  Rails will look in /app before looking in vendor/plugins/blog_kit/app/
-Once they are copied into /app, you can customize the appearance/behavior of the blog pages.
-
-Troubleshooting
-===============
-
-Q. Creating a blog post does not work, it instead renders the index page.
-A. Make sure you aren't using the old style default routes in rails (match '/:controller(/:action(/:id))')
-   If you are using default routes, then simply copy the following into your routes.rb file before the default route
-
-  	resources :blog_posts do
-		resources :blog_comments
-		resources :blog_images
-		
-		collection do
-			get :drafts
-		end
-		
-		member do
-			get :tag
-		end
-	end
-
-Tag List
-========
-
-By default, the layout does not display a list of all tags.  This can be easily added to any layout in the 
-application by including this in the controller:
-
-    helper :blog
-
-Then in the view:
-
-    <%= blog_tags_list %>
-    
-You can optionally pass in a limit on the number of tags to show.
-
-Also keep in mind that you can specify a layout just for the blog kit pages.
-
-Titles
-======
-
-You can have blog_kit set the page title, just create a method in application_helper like:
-
-    def title(ttl)
-        @page_title = ttl
-    end
-
-If anyone knows of a better convention for this, let me know.  This is what nifty_generators uses
 
 Code Highlighting Example
 =========================
@@ -169,3 +97,4 @@ doc/THEMES
 
 
 Copyright (c) 2010 Ryan Stout, released under the MIT license
+Copyright (c) 2012 Arvid Boettiger, still released under the MIT license :)
