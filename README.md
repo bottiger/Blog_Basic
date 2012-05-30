@@ -45,15 +45,15 @@ Add blog_basic to your Gemfile
 
 then run "bundle install" to make sure you are up to date. Install blog_basic my running the generator blog_basic:install
 
-   rails g blog_basic:install
+    rails g blog_basic:install
 
 and migrate your database
 
-   rake db:migrate
+    rake db:migrate
 
 edit the following file, and add your github application keys
 
-   config/initializers/blog_omniauth.rb
+    config/initializers/blog_omniauth.rb
 
 Now adjust config/routes.rb for your desired path and config/blog_basic.yml for the rest of the configuration
 
