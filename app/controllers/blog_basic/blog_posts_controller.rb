@@ -3,7 +3,6 @@ module BlogBasic
     unloadable
 
     helper :all #blog, shared
-    #include BlogBasic::Helpers
 
     layout :choose_layout
 
@@ -34,6 +33,7 @@ module BlogBasic
     end
 
     def show
+      logger.debug "(Show)ing blog post id: " + params[:id].to_s
       @blog_post = BlogPost.find(params[:id])
 
       unless @blog_post.published == 1
@@ -63,7 +63,9 @@ module BlogBasic
 
     def create
       @blog_post = BlogPost.new(params[:blog_post])
-      @blog_post.user_id = current_user.id
+
+      logger.debug "blog_post controller (create) - FIXME"
+      @blog_post.user_id = 1 #current_user.id
       logger.debug "value: #{params[:blog_post][:published]}"
       @blog_post.published_at = Time.now if params[:blog_post][:published].to_i > 0 && @blog_post.published_at.nil?
 
@@ -124,7 +126,7 @@ module BlogBasic
     end
 
     def require_admin
-      if !current_user || !current_user.admin?
+      if !signed_in?
         flash[:notice] = 'You must be an admin to view this page'
         redirect_to blog_posts_path
         return false

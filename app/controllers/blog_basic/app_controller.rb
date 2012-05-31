@@ -8,7 +8,7 @@ module BlogBasic
     end
 
     def signed_in?
-      logger.debug "(controller) Logged in: " + session[:user_id] + " == " +  BlogBasic::BlogConf.data['identity']
+      logger.debug "(controller) Logged in: " + session[:user_id].to_s + " == " +  BlogBasic::BlogConf.data['identity'].to_s
       session[:user_id] == BlogBasic::BlogConf.data['identity']
     end
 

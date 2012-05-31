@@ -12,6 +12,32 @@ module BlogBasic
 
     before_save :check_for_spam
 
+    def user_image_tag
+      if self.user && self.user.respond_to?(:blog_image_url) && self.user.blog_image_url
+        # Load image from model
+        ret = "<img src=\"#{self.user.blog_image_url}\" />"
+      elsif BlogConf.data['gravatar']
+        # Gravatar
+        require 'digest/md5'
+        if self.respond_to?(:email) && !self.email.blank?
+          email = self.email
+        elsif self.user && self.user.respond_to?(:email) && !self.user.email.blank?
+          email = self.user.email
+        else
+          return ''
+        end
+
+        hash = Digest::MD5.hexdigest(email.downcase)
+        ret = "<img src=\"http://www.gravatar.com/avatar/#{hash}.jpg\" />"
+      else
+        # No Image
+        return ''
+      end
+
+      return ret.html_safe if ret.respond_to?(:html_safe)
+      return ret
+    end
+
     def validate
       if !self.user
         self.errors.add(:name, 'is required') if self.name.blank?

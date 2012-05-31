@@ -1,7 +1,7 @@
 module BlogBasic
   module ApplicationHelper
     def signed_in?
-      logger.debug "(helper) Logged in: " + session[:user_id] + " == " +  BlogBasic::BlogConf.data['identity']
+      logger.debug "(helper) Logged in: " + session[:user_id].to_s + " == " +  BlogBasic::BlogConf.data['identity'].to_s
       session[:user_id] == BlogBasic::BlogConf.data['identity']
     end
 

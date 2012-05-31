@@ -1,14 +1,11 @@
 module BlogBasic
   class BlogPost < ActiveRecord::Base
 
-    #include BlogBasic::BlogBasicModelHelper
     include ActionView::Helpers::TextHelper
 
     unloadable
 
     attr_accessible :title, :body, :tag_list, :published
-
-    #belongs_to :user
 
     has_many :blog_comments, :dependent => :destroy
     has_many :blog_images, :dependent => :destroy
@@ -79,9 +76,9 @@ module BlogBasic
       end
     end
 
-    #def show_user?
-    #  (!BlogConf.data['show_user_who_published'] || BlogConf.data['show_user_who_published'] == true) && self.user
-    #end
+    def show_user?
+      (!BlogConf.data['show_user_who_published'] || BlogConf.data['show_user_who_published'] == true)
+    end
 
 
     def user_name(skip_link=false)
