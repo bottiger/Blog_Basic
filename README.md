@@ -6,6 +6,9 @@ blog_basic is a fork of the rails plugin BlogKit (https://github.com/ryanstout/b
 It aims to be a gem which provides a simple and generic blogging service for people to run on their website.
 It is made as easy as possible to deploy, and requires no external intregration to work.
 
+blog_basic is self contained inside its own namespace and rails engine, and uses you google account 
+(or any other providor omniauth supports) for easy and seemless authentication
+
 Features
 ========
 
@@ -36,8 +39,8 @@ there is still a lot of code cleaning to do, configuration should be improved et
 Futhermore I need to get some feedback from people actually using it. Currently I'm just scratching my own itch, but would love to
 hear what other people want from a blogging system.
 
-Install for Rails3
-==================
+Installation
+============
 
 Add blog_basic to your Gemfile
 
@@ -50,10 +53,6 @@ then run "bundle install" to make sure you are up to date. Install blog_basic my
 and migrate your database
 
     rake db:migrate
-
-edit the following file, and add your github application keys
-
-    config/initializers/blog_omniauth.rb
 
 Now adjust config/routes.rb for your desired path and config/blog_basic.yml for the rest of the configuration
 
