@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["bottiger@gmail.com"]
   s.homepage    = "http://bottiger.org/made/blog_basic"
   s.summary     = "Provides a basic blogging platform"
-  s.description = "Simply generates lorem ipsum text."
+  s.description = "blog_basic is a gem which allows you to set up a generic blog which rdoesnøt require any work in order t ointegrate with your website."
 
 
   s.add_dependency("bluecloth", "~> 2.2.0")  
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency("coderay")
   s.add_dependency("will_paginate", "~> 3.0.3")
 
-  s.add_development_dependency "rspec"
+  s.add_development_dependency("rspec-rails", "~> 2.0")
 
   s.rubyforge_project = "blog_basic"
 
