@@ -96,4 +96,5 @@ doc/THEMES
 
 
 Copyright (c) 2010 Ryan Stout, released under the MIT license
+
 Copyright (c) 2012 Arvid Boettiger, still released under the MIT license :)
