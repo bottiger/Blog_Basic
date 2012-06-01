@@ -1,15 +1,24 @@
 require 'rake'
 require "bundler/gem_tasks"
 require 'rake/testtask'
-#require 'rdoc/task'
+require 'rdoc/task'
 #require 'spec'
 #require 'spec/rake/spectask'
 
 #require 'rubygems'
-require 'echoe'
 
 require 'bundler'
 Bundler::GemHelper.install_tasks
+
+
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new('spec')
+
+# If you want to make this the default task
+#task :default => :spec
+
+
 
 #Echoe.new('blog_basic', '0.1.9') do |p|
 #  p.name           = "Blog Basic"

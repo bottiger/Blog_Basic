@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Arvid Böttiger"]
   s.email       = ["bottiger@gmail.com"]
   s.homepage    = "http://bottiger.org/made/blog_basic"
-  s.summary     = "Provides a basic blogging platform"
-  s.description = "blog_basic is a gem which allows you to set up a generic blog which rdoesnøt require any work in order t ointegrate with your website."
+  s.summary     = "Provides a basic blogging platform which tries to get out of your way"
+  s.description = "blog_basic is a gem which provides you with a self contained blog you can mount in your application. It aims to be as hazzle free as possible. It provides full customization of the views in order to integrate the look and feel of it, but the backend of the other hand is made as a self contained unit in order to avoid the need for integration with your existing design."
 
 
   s.add_dependency("bluecloth", "~> 2.2.0")  
@@ -25,6 +25,9 @@ Gem::Specification.new do |s|
   s.add_dependency("will_paginate", "~> 3.0.3")
 
   s.add_development_dependency("rspec-rails", "~> 2.0")
+  s.add_development_dependency("factory_girl_rails")
+  s.add_development_dependency("capybara")
+  s.add_development_dependency("guard-rspec")
 
   s.rubyforge_project = "blog_basic"
 

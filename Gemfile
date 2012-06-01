@@ -1,6 +1,8 @@
 source :rubygems
 gemspec
 
+gem 'rails'
+
 gem 'json'
 gem 'sass'
 gem 'coffee-script'
